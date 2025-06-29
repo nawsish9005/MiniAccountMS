@@ -313,6 +313,24 @@
           }
         }
       },
+      "Microsoft.EntityFrameworkCore.SqlServer/8.0.15": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Data.SqlClient": "5.1.6",
+          "Microsoft.EntityFrameworkCore.Relational": "8.0.15",
+          "System.Formats.Asn1": "8.0.2"
+        },
+        "compile": {
+          "lib/net8.0/Microsoft.EntityFrameworkCore.SqlServer.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.EntityFrameworkCore.SqlServer.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Microsoft.Extensions.Caching.Abstractions/8.0.0": {
         "type": "package",
         "dependencies": {
@@ -783,6 +801,22 @@
             "assetType": "runtime",
             "rid": "win"
           }
+        }
+      },
+      "System.Formats.Asn1/8.0.2": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/System.Formats.Asn1.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/System.Formats.Asn1.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net6.0/_._": {}
         }
       },
       "System.IdentityModel.Tokens.Jwt/7.5.0": {
@@ -1352,6 +1386,21 @@
         "lib/net8.0/Microsoft.EntityFrameworkCore.Relational.xml",
         "microsoft.entityframeworkcore.relational.8.0.15.nupkg.sha512",
         "microsoft.entityframeworkcore.relational.nuspec"
+      ]
+    },
+    "Microsoft.EntityFrameworkCore.SqlServer/8.0.15": {
+      "sha512": "Kouryy99RU+YvRpfxJ4+ajaILxindm/Fq67zFBd8Lzikl7k/b9c7Ow5ilIB7anrhh6tUXc2MIHfwDV1AcrQS/g==",
+      "type": "package",
+      "path": "microsoft.entityframeworkcore.sqlserver/8.0.15",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "PACKAGE.md",
+        "lib/net8.0/Microsoft.EntityFrameworkCore.SqlServer.dll",
+        "lib/net8.0/Microsoft.EntityFrameworkCore.SqlServer.xml",
+        "microsoft.entityframeworkcore.sqlserver.8.0.15.nupkg.sha512",
+        "microsoft.entityframeworkcore.sqlserver.nuspec"
       ]
     },
     "Microsoft.Extensions.Caching.Abstractions/8.0.0": {
@@ -2084,6 +2133,35 @@
         "useSharedDesignerContext.txt"
       ]
     },
+    "System.Formats.Asn1/8.0.2": {
+      "sha512": "yUsFqNGa7tbwm5QOOnOR3VSoh8a0Yki39mTbhOnErdbg8hVSFtrK0EXerj286PXcegiF1LkE7lL++qqMZW5jIQ==",
+      "type": "package",
+      "path": "system.formats.asn1/8.0.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "buildTransitive/net461/System.Formats.Asn1.targets",
+        "buildTransitive/net462/_._",
+        "buildTransitive/net6.0/_._",
+        "buildTransitive/netcoreapp2.0/System.Formats.Asn1.targets",
+        "lib/net462/System.Formats.Asn1.dll",
+        "lib/net462/System.Formats.Asn1.xml",
+        "lib/net6.0/System.Formats.Asn1.dll",
+        "lib/net6.0/System.Formats.Asn1.xml",
+        "lib/net7.0/System.Formats.Asn1.dll",
+        "lib/net7.0/System.Formats.Asn1.xml",
+        "lib/net8.0/System.Formats.Asn1.dll",
+        "lib/net8.0/System.Formats.Asn1.xml",
+        "lib/netstandard2.0/System.Formats.Asn1.dll",
+        "lib/netstandard2.0/System.Formats.Asn1.xml",
+        "system.formats.asn1.8.0.2.nupkg.sha512",
+        "system.formats.asn1.nuspec",
+        "useSharedDesignerContext.txt"
+      ]
+    },
     "System.IdentityModel.Tokens.Jwt/7.5.0": {
       "sha512": "D0TtrWOfoPdyYSlvOGaU9F1QR+qrbgJ/4eiEsQkIz7YQKIKkGXQldXukn6cYG9OahSq5UVMvyAIObECpH6Wglg==",
       "type": "package",
@@ -2382,7 +2460,8 @@
       "Dapper >= 2.1.66",
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 8.0.15",
       "Microsoft.AspNetCore.Identity.UI >= 8.0.15",
-      "Microsoft.Data.SqlClient >= 6.0.2"
+      "Microsoft.Data.SqlClient >= 6.0.2",
+      "Microsoft.EntityFrameworkCore.SqlServer >= 8.0.15"
     ]
   },
   "packageFolders": {
@@ -2450,6 +2529,10 @@
           "Microsoft.Data.SqlClient": {
             "target": "Package",
             "version": "[6.0.2, )"
+          },
+          "Microsoft.EntityFrameworkCore.SqlServer": {
+            "target": "Package",
+            "version": "[8.0.15, )"
           }
         },
         "imports": [
