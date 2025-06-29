@@ -1,0 +1,32 @@
+﻿@page
+@model MiniAccountMS.Pages.Vouchar.IndexModel
+
+<h2>Voucher List</h2>
+<a asp-page="Create" class="btn btn-primary">Create New Voucher</a>
+
+<table class="table mt-3">
+    <thead>
+        <tr>
+            <th>Type</th>
+            <th>Date</th>
+            <th>Reference No.</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Vouchers)
+        {
+            <tr>
+                <td>@item.Type</td>
+                <td>@item.Date.ToShortDateString()</td>
+                <td>@item.ReferenceNo</td>
+                <td>
+                    <a asp-page="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-warning">Edit</a>
+                    <form method="post" asp-page-handler="Delete" asp-route-id="@item.Id" style="display:inline;" onsubmit="return confirm('Are you sure?');">
+                        <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

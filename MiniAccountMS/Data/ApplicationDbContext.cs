@@ -1,35 +1,21 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
-using MiniAccountMS.Models;
+﻿using System.Data.SqlClient;
+using Microsoft.Extensions.Configuration;
 
 namespace MiniAccountMS.Data
 {
-    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
+    public class ApplicationDbContext
     {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
+        private readonly IConfiguration _configuration;
 
-        public DbSet<ChartOfAccount> ChartOfAccounts { get; set; }
-        public DbSet<Voucher> Vouchers { get; set; }
-        public DbSet<VoucherItem> VoucherItems { get; set; }
-        public DbSet<RolePermission> RolePermissions { get; set; }
-
-        protected override void OnModelCreating(ModelBuilder builder)
+        public ApplicationDbContext(IConfiguration configuration)
         {
-            base.OnModelCreating(builder);
+            _configuration = configuration;
+        }
 
-            // Table names and relationships if needed
-            builder.Entity<ChartOfAccount>().ToTable("ChartOfAccounts");
-
-            builder.Entity<Voucher>().ToTable("Vouchers");
-            builder.Entity<VoucherItem>().ToTable("VoucherItems");
-            builder.Entity<VoucherItem>()
-                   .HasOne<Voucher>()
-                   .WithMany(v => v.Items)
-                   .HasForeignKey(vi => vi.VoucherId)
-                   .OnDelete(DeleteBehavior.Cascade);
-
-            builder.Entity<RolePermission>().ToTable("RolePermissions");
+        // Method to get the SQL connection
+        public SqlConnection GetConnection()
+        {
+            return new SqlConnection(_configuration.GetConnectionString("DefaultConnection"));
         }
     }
 }
